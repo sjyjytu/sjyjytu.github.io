@@ -71,12 +71,10 @@
         var request = new XMLHttpRequest();
         request.open('GET', url);
         request.responseType = "text";
+        request.onload = function () {
+            poemDisplay.textContent = request.response;
+        };
         request.send();
-    };
-
-    request.onload = function () {
-        poemDisplay.textContent = request.response;
-
     };
 
     updateDisplay('Verse 1');
